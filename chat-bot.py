@@ -1,8 +1,27 @@
 import ollama
 import os
+import torch
 
 # Configuration
 MODEL = "mistral"
+
+# Check if GPU is available
+def detect_gpu():
+    gpu_available = torch.cuda.is_available()
+    if gpu_available:
+        gpu_count = torch.cuda.device_count()
+        gpu_name = torch.cuda.get_device_name(0)
+        print(f"GPU detected: {gpu_name} ({gpu_count} device(s))")
+        # Return options to use GPU
+        return True, {
+            "num_gpu": gpu_count,  # Use all available GPUs
+            "main_gpu": 0,           # Use first GPU as main
+        }
+    else:
+        print("No GPU detected, using CPU")
+        return False, {}
+
+GPU_AVAILABLE, GPU_OPTIONS = detect_gpu()
 
 # Load UNF information from file
 def load_unf_info():
@@ -19,9 +38,7 @@ SYSTEM_PROMPT = f"""You are a helpful tour guide for the University of North Flo
 You provide information about campus locations, buildings, facilities, and general tour guidance. 
 Be friendly, informative, and concise in your responses.
 
-Here is the UNF campus information you should reference:
-
-{UNF_INFO}
+Here is the UNF campus information you should reference:{UNF_INFO}
 
 Use this information to answer questions about UNF accurately."""
 
@@ -40,7 +57,8 @@ def chat_with_tour_guide(user_message: str) -> str:
                     "content": user_message
                 }
             ],
-            stream=False
+            stream=False,
+            options=GPU_OPTIONS  # Pass GPU options if available
         )
         
         return response["message"]["content"]

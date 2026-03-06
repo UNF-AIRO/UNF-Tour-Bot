@@ -1,0 +1,71 @@
+University of North Florida - Building 15
+Building 15, John E. Mathews Jr. Computer Science Bldg.
+
+The John E. Mathews, Jr. Computer Science Building was constructed in 1988 to house computer labs and other technical resources of the University. Although the technology has changed, this building still serves as a central location for UNF students seeking to further their knowledge of computing.
+
+In this building
+    - School of Computing: UNF’s School of Computing offers coursework designed to prepare students for successful careers and advanced degree programs in the fields of computer science, information science, information systems and information technology. Graduates benefit from collaborative opportunities both with classmates and professors.
+    - John E. Mathews Bio
+        -John E. (Jack) Mathews served in the Florida Legislature from 1956-1970. He was a popular, influential, and widely respected political figure, whose achievements as a legislator are well-known in the state of Florida. During his tenure in the House and Senate, he was instrumental in: Florida reapportionment, restructuring of state bureaucracy, enactment of competitive bidding procedures for state purchasing, writing of a new state constitution and expansion of the state university system.  
+        -He participated in two Florida gubernatorial races: 1963-64 (finished fifth to Haydon Burns); and 1969-70 (finished second to Reubin Askew in the Democratic primary). He was named 1961 Most Outstanding Member of Florida House award, 1963 Most Outstanding Member of Florida Senate award, and Presidency of the Florida Senate in 1969-70.
+    - Language and Culture Lab: The Language and Culture Lab (15/1105) is a safe space for UNF students to reinforce their second language skills in a relaxed, social and culturally immersive environment. The space is equipped with conversation and board-gaming tables, materials and technology for language and culture learning, and more.
+    - Software Development Computer Lab: The Software Development Computer Lab is open to all UNF students, but installed software is tailored for those studying software development. The installed software includes Eclipse, Microsoft Visual Studio 2010, Microsoft SQL Tools, Netbeans, Oracle Client, SSH, Putty, MyITLab, SimUaid, LogicAid, Mozilla, Chrome, Matlab2012a, Microsoft Baseline Security Analyzer, WebDrive, Orcad Lite, CodeBlocks, PowerDVD, JGrasp, Notepad++, Quicktime, Real Player, LanSchool and Microsoft Office 2010 Professional. The lab also offers tutoring services for most programming languages.
+    - General Purpose Computer Lab: The General Purpose Computer Lab is open to all UNF students, providing basic software programs and Internet access necessary to complete projects and study for coursework.
+
+Key Facilities & Labs
+    -The building is packed with specialized labs designed for different areas of study:
+    -RF-Smart Lab (Room 3130): The main computer lab for all UNF students, but specifically tailored for software development with tools like Visual Studio, Eclipse, and MATLAB.
+    -Cybersecurity Lab (Rooms 2202 & 2204): A reconfigurable, isolated lab environment used for working with network security and malware.
+    -iMobile3 Lab (Room 3126): Equipped with 24 iMacs for mobile and application development.
+    -Bio/Health Informatics Lab (Room 3120): Used for faculty-led research and practicums in bioinformatics.
+    -Student Research Lab (Room 3122): A "bring your own device" space focused on graduate and advanced undergraduate research projects.
+    -Data Engineering Lab (Room 3124): A flexible space for data-driven instruction and projects.
+
+Important Services
+    -Undergraduate Advising: If you need to meet with a faculty advisor for the School of Computing, their main office is in Room 3201.
+    -Tutoring: The building often hosts tutoring services for various programming languages (usually through the SMART Center or within the labs).
+
+The third floor has majority of the professor offices and the RF-Smart Lab room
+
+Open 8am - 6pm
+
+
+UNF School of Computing Directory:
+
+    Director & Administration:
+        -Nan Niu (Professor & Director) - nan.niu@unf.edu - (904) 620-1304 - Bldg. 15, STE 3201
+        -Gabriela Guitierrez (Office Manager) - gabrela.gutierrez@unf.edu - (904) 620-2986 - Bldg. 15, STE 3201
+        -Contessa Michalkiewicz (Administrative Secretary) - contessa.m@unf.edu - (904) 620-2988 - Bldg. 15, STE 3201
+
+Academic Advisors:
+    -Elise Marshall (Associate Instructor & Advisor) - e.marshall@unf.edu - (904) 620-7836 - Bldg. 15, Office 3209
+    -Christopher Linke (Advisor) - n00433376@unf.edu - Bldg. 4, Office 3312
+    -Jessica Mattia (Advisor) - jessica.mattia@unf.edu - Bldg. 15, Office 3311
+
+Professors & Associate Professors
+    -Sanjay Ahuja (Professor) - sahuja@unf.edu - (904) 620-1317 - Bldg. 15, Office 3213
+    -William Klostermeyer (Professor & Dean) - wkloster@unf.edu - (904) 620-1327 - Bldg. 4, Office 4201
+    -Zornitza Prodanoff (Professor) - zprodano@unf.edu - (904) 620-1312 - Bldg. 15, Office 3225
+    -Swapnoneel Roy (Professor) - s.roy@unf.edu - (904) 620-2182 - Bldg. 15, Office 3226
+    -Karthikeyan Umapathy (Professor) - k.umapathy@unf.edu - (904) 620-1329 - Bldg. 15, Office 3214
+    -Ayan Dutta (Associate Professor) - a.dutta@unf.edu - (904) 620-1313 - Bldg. 15, Office 3222
+    -Anirban Ghosh (Associate Professor) - anirban.ghosh@unf.edu - (904) 620-1302 - Bldg. 15, Office 3228
+    -Indika Kahanda (Associate Professor) - n01472955@unf.edu - (904) 620-1326 - Bldg. 15, Office 3223
+    -Upulee Kanewala (Associate Professor) - u.kanewala@unf.edu - (904) 620-1378 - Bldg. 15, Office 3224
+    -Xudong Liu (Associate Professor) - xudong.liu@unf.edu - (904) 620-2554 - Bldg. 15, Office 3211
+    -Sandeep Reddivari (Associate Professor & Graduate Director) - sandeep.reddivari@unf.edu - (904) 620-1307 - Bldg. 15, Office 3227
+    -Iman Vakilinia (Associate Professor) - i.vakilinia@unf.edu - (904) 620-1320 - Bldg. 15, Office 3218
+
+Assistant Professors & Instructors:
+    -Brett Benda (Assistant Professor) - n01669368@unf.edu - (904) 620-5677 - Bldg. 15, Office 3217
+    -Yongzhao Wang (Assistant Professor) - yongzhao.w@unf.edu - (904) 620-1067 - Bldg. 15, Office 3220
+    -Richa Jethwani (Associate Instructor) - r.jethwani@unf.edu - (904) 620-1328 - Bldg. 15, Office 3205
+    -Jim Littleton (Associate Instructor) - jim.littleton@unf.edu - (904) 620-1314 - Bldg. 15, Office 3123
+    -Larry Snedden (Associate Instructor) - l.snedden@unf.edu - (904) 620-1301 - Bldg. 15, Office 3207
+    -Jeremiah Doody (Instructor) - n00810032@unf.edu - (904) 620-2985 - Bldg. 15, Office 3221
+    -Richard Lentz (Instructor) - r.lentz@unf.edu - (904) 620-1309 - Bldg. 15, Office 3125
+    -Ameyaa Biwalkar (Visiting Instructor) - ameyaa.biwalkar@unf.edu - (904) 620-1318 - Bldg. 15, Office 3212
+    -Scott Piersall (Visiting Instructor) - scott.piersall@unf.edu - (904) 620-2988 - Bldg. 15, Office 3119
+    -Astryn Strickley (Visiting Instructor) - n01443352@unf.edu - (904) 620-2653 - Bldg. 15
+
+

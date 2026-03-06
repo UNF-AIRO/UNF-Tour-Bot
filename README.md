@@ -18,7 +18,7 @@ A conversational AI chatbot that provides information about the University of No
    ```
    pip install -r requirements.txt
    ```
-   Or manually install: `pip install ollama pydantic`
+   Or manually install: `pip install ollama pydantic torch`
 
 ---
 
@@ -40,14 +40,14 @@ A conversational AI chatbot that provides information about the University of No
 
 ### Step 1: Start Ollama Service
 Open a PowerShell terminal and run:
-```
+```powershell
 ollama serve
 ```
 Leave this running in the background. You should see "Listening on localhost:11434"
 
 ### Step 2: Run the Testing Chatbot
 Open a new PowerShell terminal and run:
-```
+```powershell
 & "tour_bot\Scripts\Activate.ps1"
 python testing-chat-bot.py
 ```

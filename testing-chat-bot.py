@@ -3,9 +3,14 @@ import torch
 
 # Configuration
 MODEL = "mistral"
+FORCE_CPU = True  # Set to True to use CPU only, False to use GPU if available
 
 # Check if GPU is available
 def detect_gpu():
+    if FORCE_CPU:
+        print("GPU disabled, using CPU only")
+        return False, {}
+    
     gpu_available = torch.cuda.is_available()
     if gpu_available:
         gpu_count = torch.cuda.device_count()
@@ -21,6 +26,9 @@ def detect_gpu():
         return False, {}
 
 GPU_AVAILABLE, GPU_OPTIONS = detect_gpu()
+
+# Chat history for context
+chat_history = []
 
 def get_system_prompt(building_number) -> str:
     try:
@@ -41,25 +49,39 @@ def get_system_prompt(building_number) -> str:
     return SYSTEM_PROMPT
 
 
-def chat_with_tour_guide(user_message: str, building_number):
+def chat_with_tour_guide(user_message: str, building_number, chat_history: list):
     try:
+        # Add user message to history
+        chat_history.append({
+            "role": "user",
+            "content": user_message
+        })
+        
+        # Build messages list with system prompt first, then history
+        messages = [
+            {
+                "role": "system",
+                "content": get_system_prompt(building_number = building_number)
+            }
+        ]
+        messages.extend(chat_history)
+        
         response = ollama.chat(
             model=MODEL,
-            messages=[
-                {
-                    "role": "system",
-                    "content": get_system_prompt(building_number = building_number)
-                },
-                {
-                    "role": "user",
-                    "content": user_message
-                }
-            ],
+            messages=messages,
             stream=False,
             options=GPU_OPTIONS  # Pass GPU options if available
         )
         
-        return response["message"]["content"]
+        assistant_message = response["message"]["content"]
+        
+        # Add assistant response to history
+        chat_history.append({
+            "role": "assistant",
+            "content": assistant_message
+        })
+        
+        return assistant_message
     
     except Exception as e:
         return f"Error: {str(e)}. Please make sure Ollama is running on localhost:11434"
@@ -73,6 +95,7 @@ if __name__ == "__main__":
     print("Type 'building <number>' to change buildings\n")
     
     building_number = int(input("Enter current building number: "))
+    chat_history = []
 
     while True:
         user_input = input("You: ").strip()
@@ -86,7 +109,8 @@ if __name__ == "__main__":
             try:
                 new_building = int(user_input.split()[1])
                 building_number = new_building
-                print(f"Switched to building {building_number}.\n")
+                chat_history = []  # Reset conversation history when changing buildings
+                print(f"Switched to building {building_number}. Starting fresh conversation.\n")
                 continue
             except (IndexError, ValueError):
                 print("Invalid format. Use 'building <number>' to change buildings.\n")
@@ -96,6 +120,6 @@ if __name__ == "__main__":
             continue
         
         print("\nTour Guide: ", end="", flush=True)
-        response = chat_with_tour_guide(user_input, building_number=building_number)
+        response = chat_with_tour_guide(user_input, building_number=building_number, chat_history=chat_history)
         print(response)
         print()

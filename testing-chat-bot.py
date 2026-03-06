@@ -2,7 +2,7 @@ import ollama
 import torch
 
 # Configuration
-MODEL = "llama2"
+MODEL = "Mistral"
 
 # Check if GPU is available
 def detect_gpu():

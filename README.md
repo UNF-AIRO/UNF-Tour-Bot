@@ -8,6 +8,11 @@ A conversational AI chatbot that provides information about the University of No
 - Ollama installed ([Download here](https://ollama.ai))
 - The Mistral model downloaded
 
+## Models
+
+- **Testing**: Mistral (lightweight, fast iteration)
+- **Deployment**: Llama2 (more capable, production-ready)
+
 ## Setup (First Time Only)
 
 1. **Install Python packages:**

@@ -24,7 +24,7 @@ GPU_AVAILABLE, GPU_OPTIONS = detect_gpu()
 
 def get_system_prompt(building_number) -> str:
     try:
-        with open(str(building_number) + ".txt", "r") as file:
+        with open(f"building_info\\{building_number}.txt", "r") as file:
             info = file.read()
     except FileNotFoundError:
         print(f"Warning: Building file {building_number}.txt not found")

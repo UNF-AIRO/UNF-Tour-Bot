@@ -1,7 +1,7 @@
 import os
-from pathlib import Path
 
-def read_building_info(building_number):
+def read_building_info(building_number: str) -> str | None:
+    """Read building information from text file."""
     building_file = f"building_info/{building_number}.txt"
     
     if not os.path.exists(building_file):
@@ -14,7 +14,8 @@ def read_building_info(building_number):
         print(f"Error reading building file: {e}")
         return None
 
-def get_available_buildings():
+def get_available_buildings() -> list[str]:
+    """Get list of available building numbers."""
     building_dir = "building_info"
     
     if not os.path.exists(building_dir):

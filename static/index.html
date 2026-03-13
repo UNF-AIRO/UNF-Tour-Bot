@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNF Tour Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #001f3f 0%, #003a70 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: #001f3f;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Building Selection Page */
+        #buildingSelectionPage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 30px;
+            text-align: center;
+            flex: 1;
+        }
+
+        #buildingSelectionPage h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        #buildingSelectionPage p {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        #buildingInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        #buildingInput:focus {
+            outline: none;
+            border-color: #001f3f;
+            box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+        }
+
+        #startBtn {
+            width: 100%;
+            padding: 15px;
+            background: #001f3f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #startBtn:hover {
+            background: #003a70;
+        }
+
+        #startBtn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error {
+            color: #d32f2f;
+            padding: 12px;
+            background: #ffebee;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Chat Page */
+        #chatPage {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            max-height: 600px;
+            flex: 1;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #001f3f 0%, #003a70 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #backBtn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        #backBtn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 30px;
+            background: #f5f5f5;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            animation: slideIn 0.3s ease-in;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.assistant {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            word-wrap: break-word;
+        }
+
+        .user .message-content {
+            background: #001f3f;
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+
+        .assistant .message-content {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 0;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            padding: 20px 30px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        #messageInput:focus {
+            outline: none;
+            border-color: #001f3f;
+            box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+        }
+
+        #sendBtn {
+            padding: 12px 24px;
+            background: #001f3f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        #sendBtn:hover {
+            background: #003a70;
+        }
+
+        #sendBtn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                min-height: auto;
+            }
+
+            .logo-corner {
+                top: 10px;
+                left: 10px;
+            }
+
+            .logo-corner img {
+                height: 60px;
+            }
+
+            #chatPage {
+                max-height: none;
+            }
+
+            .message-content {
+                max-width: 100%;
+            }
+
+            #buildingSelectionPage {
+                padding: 30px 20px;
+            }
+
+            #buildingSelectionPage h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Building Selection Page -->
+        <div id="buildingSelectionPage">
+            <h1>UNF Tour Guide</h1>
+            <p>Start a campus tour by entering a building number</p>
+            <div id="selectionError" class="error"></div>
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="buildingInput" 
+                    placeholder="Enter building number..." 
+                    autocomplete="off"
+                >
+            </div>
+            <button id="startBtn" onclick="startChat()">Start Tour</button>
+        </div>
+
+        <!-- Chat Page -->
+        <div id="chatPage">
+            <div class="chat-header">
+                <h2>Building <span id="headerBuilding"></span></h2>
+                <button id="backBtn" onclick="goBack()">← Back</button>
+            </div>
+
+            <div class="chat-area" id="chatArea">
+                <div class="message assistant">
+                    <div class="message-content">Hello! Welcome. Ask me anything about this building!</div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Ask a question..." 
+                >
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentBuilding = null;
+        let chatHistory = [];
+        const API_BASE = location.origin;
+
+        // Focus on input on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('buildingInput').focus();
+        });
+
+        function startChat() {
+            const buildingNumber = document.getElementById('buildingInput').value.trim();
+            
+            if (!buildingNumber) {
+                showBuildingError('Please enter a building number');
+                return;
+            }
+
+            currentBuilding = buildingNumber;
+            chatHistory = [];
+
+            // Switch to chat page
+            document.getElementById('buildingSelectionPage').style.display = 'none';
+            document.getElementById('chatPage').style.display = 'flex';
+            document.getElementById('headerBuilding').textContent = buildingNumber;
+            document.getElementById('messageInput').focus();
+
+            // Reset chat
+            const chatArea = document.getElementById('chatArea');
+            chatArea.innerHTML = `
+                <div class="message assistant">
+                    <div class="message-content">Hello! Welcome. Ask me anything about this building!</div>
+                </div>
+            `;
+        }
+
+        function goBack() {
+            currentBuilding = null;
+            chatHistory = [];
+            
+            // Switch back to building selection
+            document.getElementById('chatPage').style.display = 'none';
+            document.getElementById('buildingSelectionPage').style.display = 'flex';
+            document.getElementById('buildingInput').value = '';
+            document.getElementById('buildingInput').focus();
+            document.getElementById('selectionError').style.display = 'none';
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+
+            if (!message || !currentBuilding) return;
+
+            // Add user message to chat
+            addMessage('user', message);
+            input.value = '';
+
+            // Show loading indicator
+            addMessage('assistant', 'Thinking...');
+
+            try {
+                const response = await fetch(`${API_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        building: currentBuilding,
+                        chat_history: chatHistory
+                    })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Failed to get response');
+                }
+
+                const data = await response.json();
+                
+                // Remove loading message
+                const chatArea = document.getElementById('chatArea');
+                chatArea.removeChild(chatArea.lastChild);
+
+                // Add assistant response
+                addMessage('assistant', data.message);
+                chatHistory = data.chat_history;
+            } catch (error) {
+                // Remove loading message
+                const chatArea = document.getElementById('chatArea');
+                if (chatArea.lastChild && chatArea.lastChild.querySelector('.message-content').textContent === 'Thinking...') {
+                    chatArea.removeChild(chatArea.lastChild);
+                }
+                
+                addMessage('assistant', `Error: ${error.message}`);
+            }
+
+            input.focus();
+        }
+
+        function addMessage(role, content) {
+            const chatArea = document.getElementById('chatArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            
+            messageDiv.appendChild(contentDiv);
+            chatArea.appendChild(messageDiv);
+            
+            // Auto-scroll to bottom
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            // Type out assistant messages, show user messages instantly
+            if (role === 'assistant') {
+                typeMessage(contentDiv, content);
+            } else {
+                contentDiv.textContent = content;
+            }
+        }
+
+        function typeMessage(element, text, speed = 30) {
+            let index = 0;
+            element.textContent = '';
+
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    // Auto-scroll while typing
+                    const chatArea = document.getElementById('chatArea');
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        function showBuildingError(message) {
+            const errorDiv = document.getElementById('selectionError');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        // Allow sending message with Enter key
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                const chatPage = document.getElementById('chatPage');
+                const buildingSelectionPage = document.getElementById('buildingSelectionPage');
+                
+                if (chatPage.style.display === 'flex') {
+                    e.preventDefault();
+                    sendMessage();
+                } else if (buildingSelectionPage.style.display === 'flex' && e.target.id === 'buildingInput') {
+                    e.preventDefault();
+                    startChat();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

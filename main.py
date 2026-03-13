@@ -1,13 +1,12 @@
-import web_search
-import chat_bot as ozzie
-import file_reader
+import uvicorn
+from api import app
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("Welcome to UNF Tour Guide")
+    print("Starting UNF Tour Guide API Server")
     print("=" * 60)
-    print("Type 'quit' or 'exit' to end the conversation")
-    print("Type 'building <number>' to change buildings")
-    print("Type 'list' to see available buildings\n")
-
-    ozzie.start()
+    print("Server running at: http://localhost:8000")
+    print("OpenAPI docs at: http://localhost:8000/docs")
+    print("=" * 60)
+    
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -20,6 +20,7 @@ Key Facilities & Labs
     -Bio/Health Informatics Lab (Room 3120): Used for faculty-led research and practicums in bioinformatics.
     -Student Research Lab (Room 3122): A "bring your own device" space focused on graduate and advanced undergraduate research projects.
     -Data Engineering Lab (Room 3124): A flexible space for data-driven instruction and projects.
+    -UNF Smart Center: Math tutoring room where students can get help with any math class. It's run by students for studnets and its location is on the second floor.
 
 Important Services
     -Undergraduate Advising: If you need to meet with a faculty advisor for the School of Computing, their main office is in Room 3201.
